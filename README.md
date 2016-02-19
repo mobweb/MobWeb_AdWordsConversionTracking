@@ -1,6 +1,6 @@
 # MobWeb_AdWordsConversionTracking extension for Magento
 
-...
+A simple Magento extension that adds AdWords Conversion tracking for successful purchases.
 
 ## Configuration
 
