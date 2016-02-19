@@ -12,16 +12,16 @@ class MobWeb_AdWordsConversionTracking_Block_Conversion extends Mage_Core_Block_
         $googleConversionLabel = Mage::getStoreConfig('google/mobweb_adwordsconversiontracking/google_conversion_label');
         $googleRemarketingOnly = Mage::getStoreConfig('google/mobweb_adwordsconversiontracking/google_remarketing_only');
 
-        // Load the order and get the order total and currency
-        $googleConversionValue = '0.00';
-        $googleConversionCurrency = '';
-        if(($order = Mage::getModel('sales/order')->load(Mage::getSingleton('checkout/session')->getLastOrderId())) && $order INSTANCEOF Mage_Sales_Model_Order) {
-            $googleConversionValue = round($order->getSubtotal(), 2);
-            $googleConversionCurrency = $order->getOrderCurrencyCode();
-        }
-
         // Check if all the required values are available
         if($googleConversionId && $googleConversionLanguage && $googleConversionFormat && $googleConversionColor && $googleConversionLabel) {
+
+            // Load the order and get the order total and currency
+            $googleConversionValue = '0.00';
+            $googleConversionCurrency = '';
+            if(($order = Mage::getModel('sales/order')->load(Mage::getSingleton('checkout/session')->getLastOrderId())) && $order INSTANCEOF Mage_Sales_Model_Order) {
+                $googleConversionValue = round($order->getSubtotal(), 2);
+                $googleConversionCurrency = $order->getOrderCurrencyCode();
+            }
 
             // Generate the Javascript to track the conversion
             $html = '<script type="text/javascript">/* <![CDATA[ */ ';
