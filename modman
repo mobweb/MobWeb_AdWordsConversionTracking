@@ -1,0 +1,6 @@
+app/code/community/MobWeb/AdWordsConversionTracking app/code/community/MobWeb/AdWordsConversionTracking/
+app/design/frontend/base/default/layout/mobweb_adwordsconversiontracking.xml app/design/frontend/base/default/layout/mobweb_adwordsconversiontracking.xml
+app/etc/modules/MobWeb_AdWordsConversionTracking.xml app/etc/modules/MobWeb_AdWordsConversionTracking.xml
+
+# Clear the cache
+@shell   rm -rf $PROJECT/var/cache/* && echo "Magento Cache cleared"
